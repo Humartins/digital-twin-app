@@ -1,14 +1,24 @@
-import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { styles } from './styles';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { styles } from '../../../styles';
+import { Homestyles } from './styles';
 
-export default function HomeScreen() {
+const HomeScreen = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bem-vindo ao Digital Twin</Text>
-      <TouchableOpacity style={styles.button} onPress={() => { /* Navegação depois */ }}>
+      <Text style={Homestyles.inlineText}>Bem-vindo ao Digital Twin</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Sensors')}
+      >
         <Text style={styles.buttonText}>Começar</Text>
       </TouchableOpacity>
     </View>
   );
-}
+};
+
+export default HomeScreen;

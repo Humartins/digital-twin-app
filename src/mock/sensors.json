@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "nome": "Sensor de Pressão",
+    "valor": "3.5 bar",
+    "status": "OK"
+  },
+  {
+    "id": "2",
+    "nome": "Sensor Magnético",
+    "valor": "Ativado",
+    "status": "Alerta"
+  },
+  {
+    "id": "3",
+    "nome": "Sensor Indutivo",
+    "valor": "Desativado",
+    "status": "OK"
+  }
+]

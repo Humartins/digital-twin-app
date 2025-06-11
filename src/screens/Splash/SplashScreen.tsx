@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
-import { styles } from './styles';
+import { styles } from '../../../styles';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../navigation/AppNavigator';
+import {Splashstyles} from './styles'
 
 export default function SplashScreen() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.navigate('Home'); // Certifique-se de que a rota seja "Home", não "HomeScreen"
+      navigation.navigate('Home');
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -18,12 +19,11 @@ export default function SplashScreen() {
   return (
     <View style={styles.container}>
       <Image 
-        source={require('../../../assets/favicon.png')} 
-        style={styles.logo} 
+        source={require('../../../assets/logo.png')} 
+        style={Splashstyles.logo} 
         resizeMode="contain"
       />
-      <Text style={styles.title}>Digital Twin</Text>
-      <Text style={styles.subtitle}>Carregando...</Text>
+      <Text style={Splashstyles.subtitle}>Carregando...</Text>
     </View>
   );
 }
