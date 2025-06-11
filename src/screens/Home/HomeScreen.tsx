@@ -10,7 +10,14 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={Homestyles.inlineText}>Bem-vindo ao Digital Twin</Text>
+      <View>
+        <Text style = {Homestyles.Title} numberOfLines={1}>Bem-Vindo</Text>
+
+        <Text style = {Homestyles.Title}>ao</Text>
+
+        <Text style = {Homestyles.TitleWMB} numberOfLines={1}>Digital Twin</Text>
+      </View>
+
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('Sensors')}

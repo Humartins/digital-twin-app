@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { styles } from '../../../styles';
 import { SensorsStyles } from './style';
 import sensoresMock from '../../mock/sensors.json' with { type: "json" };
 
@@ -38,7 +37,7 @@ export default function SensorList() {
   );
 
   return (
-    <View style={styles.container}>
+    <View>
       <FlatList
         data={sensors}
         renderItem={renderSensor}
