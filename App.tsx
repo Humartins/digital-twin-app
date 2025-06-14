@@ -1,12 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { AppNavigator } from './src/navigation/AppNavigator';
+import Routes from './routes';
+import { SensorProvider } from './src/context/SensorContext';
 
 export default function App() {
   return (
-    <>
-      <AppNavigator />
-      <StatusBar style="auto" />
-    </>
+    <SensorProvider>
+      <Routes />
+    </SensorProvider>
   );
 }

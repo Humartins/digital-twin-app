@@ -1,19 +1,40 @@
-export function gerarValorStatus(tipo: string) {
-  switch (tipo) {
-    case 'pressao': {
-      const valor = (Math.random() * 10).toFixed(1) + ' bar';
-      const status = parseFloat(valor) > 7 ? 'Alerta' : 'OK';
-      return { valor, status };
+import sensoresBase from '../../mock/sensors.json';
+
+export type Sensor = {
+  id: string;
+  nome: string;
+  tipo: string;
+  valor: string;
+  status: 'OK' | 'Alerta';
+};
+
+export async function generateSensorData(): Promise<Sensor[]> {
+  return sensoresBase.map((sensor) => {
+    let valor = '';
+    let status: 'OK' | 'Alerta' = 'OK';
+
+    switch (sensor.tipo) {
+      case 'pressao':
+        const pressao = parseFloat((Math.random() * 10 + 1).toFixed(2)); 
+        valor = `${pressao} bar`;
+        if (pressao > 9) status = 'Alerta';
+        break;
+
+      case 'magnetico':
+      case 'indutivo':
+        const ativo = Math.random() > 0.5;
+        valor = ativo ? 'Ativado' : 'Desativado';
+        if (!ativo) status = 'Alerta';
+        break;
+
+      default:
+        valor = 'Desconhecido';
     }
-    case 'magnetico': {
-      const ativo = Math.random() > 0.5;
-      return { valor: ativo ? 'Ativado' : 'Desativado', status: ativo ? 'Alerta' : 'OK' };
-    }
-    case 'indutivo': {
-      const ativo = Math.random() > 0.5;
-      return { valor: ativo ? 'Desativado' : 'Ativado', status: 'OK' };
-    }
-    default:
-      return { valor: 'N/A', status: 'OK' };
-  }
+
+    return {
+      ...sensor,
+      valor,
+      status,
+    };
+  });
 }
