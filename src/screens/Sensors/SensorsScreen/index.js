@@ -1,15 +1,21 @@
-import React from 'react';
-import { SafeAreaView, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView } from 'react-native';
 import ListaHorizontal from '../../../components/ListaHorizontal';
+import { getSensoresComDados } from '../SensorList';
 
 const SensorScreen = () => {
-  const data = [
-    '#FF6633',
-    '#FFb399',
-    '#FF33FF'
-  ];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const sensores = getSensoresComDados();
+    setData(sensores);
+  }, []);
+  
   return (
-    <SafeAreaView>
+    <SafeAreaView style ={{
+      flex:1,
+      backgroundColor:'#180833'
+      }}>
         <ListaHorizontal data={data} />
     </SafeAreaView>
   );
