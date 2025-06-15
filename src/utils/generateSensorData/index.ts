@@ -15,7 +15,7 @@ export async function generateSensorData(): Promise<Sensor[]> {
 
     switch (sensor.tipo) {
       case 'pressao':
-        const pressao = parseFloat((Math.random() * 10 + 1).toFixed(2)); 
+        const pressao = parseFloat((Math.random() * 10 + 1).toFixed(2));
         valor = `${pressao} bar`;
         if (pressao > 9) status = 'Alerta';
         break;
@@ -33,8 +33,8 @@ export async function generateSensorData(): Promise<Sensor[]> {
 
     return {
       ...sensor,
-      valor,
-      status,
+      valor: String(valor),
+      status: String(status) as 'OK' | 'Alerta',
     };
   });
 }

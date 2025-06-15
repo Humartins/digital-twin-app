@@ -16,7 +16,7 @@ const ListaHorizontal = ({ data }) => {
             scrollEventThrottle={16}
             decelerationRate='fast'
             style={{
-                marginTop: 150
+                marginTop: 20
             }}
             renderItem={({ item }) => {
                 const isValid = (
@@ -26,7 +26,7 @@ const ListaHorizontal = ({ data }) => {
                 );
 
                 return (
-                    <View style={[CardStyle.card, !isValid && { backgroundColor: '#ccc' }]}>
+                    <View style={[CardStyle.card, !isValid && { backgroundColor: '#FFF' }]}>
                         <Text style={FlatListStyles.nome}>
                             {typeof item.nome === 'string' ? item.nome : 'Nome inválido'}
                         </Text>
@@ -61,8 +61,8 @@ const CardStyle = StyleSheet.create({
         elevation: 4,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
     },
 });
 

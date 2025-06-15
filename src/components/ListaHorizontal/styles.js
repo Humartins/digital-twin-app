@@ -5,7 +5,7 @@ const FlatListStyles = StyleSheet.create({
     fontSize: 22,
     fontFamily: 'monospace',
     fontWeight: ['Lucida Console', 'bold'],
-    marginBottom: 12,
+    marginBottom: 20,
     color: '#180833'
   },
   valor: {

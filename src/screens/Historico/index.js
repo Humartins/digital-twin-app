@@ -22,14 +22,19 @@ export default function HistoricoScreen() {
               ) {
                 return (
                   <Text key={sensor.id ?? index}>
-                    {sensor.nome}: {sensor.valor} - {sensor.status}
+                    {`${sensor.nome || '---'}: ${sensor.valor || '---'} - ${sensor.status || '---'}`}
                   </Text>
                 );
               } else {
-                console.warn('Sensor malformado:', sensor); // 🧪 log para debug
-                return null;
+                console.warn('Sensor malformado:', sensor); 
+                return (
+                  <Text key={index} style={{ color: 'red' }}>
+                    Sensor inválido
+                  </Text>
+                );
               }
             })}
+
         </View>
       ))}
     </ScrollView>
