@@ -1,5 +1,0 @@
-[
-  { "id": "1", "nome": "Sensor de Pressão", "tipo": "pressao" },
-  { "id": "2", "nome": "Sensor Magnético", "tipo": "magnetico" },
-  { "id": "3", "nome": "Sensor Indutivo", "tipo": "indutivo" }
-]
