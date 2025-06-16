@@ -2,7 +2,6 @@ package com.twin.monitor.api.controller;
 
 import com.twin.monitor.api.model.Reading;
 import com.twin.monitor.api.repository.ReadingRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

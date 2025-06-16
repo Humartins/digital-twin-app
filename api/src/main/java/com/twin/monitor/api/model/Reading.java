@@ -11,7 +11,7 @@ public class Reading {
     private Long id;
 
     private String sensorId;
-    private Double value;
+    private Double reading_value;
     private LocalDateTime timestamp;
 
     // Getters e Setters
@@ -21,8 +21,8 @@ public class Reading {
     public String getSensorId() { return sensorId; }
     public void setSensorId(String sensorId) { this.sensorId = sensorId; }
 
-    public Double getValue() { return value; }
-    public void setValue(Double value) { this.value = value; }
+    public Double getValue() { return reading_value; }
+    public void setValue(Double value) { this.reading_value = value; }
 
     public LocalDateTime getTimestamp() { return timestamp; }
     public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
