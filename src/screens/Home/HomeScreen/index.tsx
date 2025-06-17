@@ -1,8 +1,10 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { useState } from 'react';
 import { styles } from '../../../../styles';
 import { Homestyles } from '../styles';
+import { useSensorContext } from '../../../context/SensorContext';
 
 type BottomTabParamList = {
   Home: undefined;
@@ -12,6 +14,15 @@ type BottomTabParamList = {
 
 const HomeScreen = () => {
   const navigation = useNavigation<BottomTabNavigationProp<BottomTabParamList>>();
+  const { atualizarSensoresEEnviar } = useSensorContext();
+  const [carregando, setCarregando] = useState(false);
+
+  const iniciarApp = async () => {
+    setCarregando(true);
+    await atualizarSensoresEEnviar();
+    setCarregando(false);
+    navigation.navigate('Sensores');
+  };
 
   return (
     <View style={styles.container}>
@@ -23,9 +34,14 @@ const HomeScreen = () => {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Sensores')}
+        onPress={iniciarApp}
+        disabled={carregando}
       >
-        <Text style={styles.buttonText}>Começar</Text>
+        {carregando ? (
+          <ActivityIndicator color="#180833" />
+        ) : (
+          <Text style={styles.buttonText}>Começar</Text>
+        )}
       </TouchableOpacity>
     </View>
   );

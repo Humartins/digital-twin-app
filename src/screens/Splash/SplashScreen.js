@@ -5,7 +5,7 @@ import { styles } from '../../../styles';
 import { Splashstyles } from './styles';
 
 export default function SplashScreen() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation();
 
   useEffect(() => {
     const timer = setTimeout(() => {

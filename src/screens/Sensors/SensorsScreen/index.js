@@ -2,15 +2,12 @@ import React, { useEffect } from 'react';
 import { SafeAreaView, TouchableOpacity, Text } from 'react-native';
 import ListaHorizontal from '../../../components/ListaHorizontal';
 import { useSensorContext } from '../../../context/SensorContext';
-import { generateSensorData } from '../../../utils/generateSensorData';
 
 const SensorScreen = () => {
-  const { sensores, setSensores, adicionarAoHistorico } = useSensorContext();
+  const { sensores, atualizarSensoresEEnviar } = useSensorContext();
 
   const atualizarDados = async () => {
-    const novosDados = await generateSensorData();
-    setSensores(novosDados);
-    adicionarAoHistorico(novosDados);
+    await atualizarSensoresEEnviar();
   };
 
   useEffect(() => {
@@ -25,7 +22,7 @@ const SensorScreen = () => {
         style={{
           backgroundColor: '#fff',
           margin: 10,
-          padding:10,
+          padding: 10,
           borderRadius: 10,
           alignItems: 'center',
         }}
