@@ -1,0 +1,18 @@
+2025-06-16 22:17:44.154654-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SHOW TABLES[*],"; SQL statement:
+SHOW TABLES, [42000-232]
+2025-06-16 22:56:19.072886-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists reading add column [*]value float(53)"; expected "identifier"; SQL statement:
+alter table if exists reading add column value float(53) [42001-232]
+2025-06-16 22:56:34.922944-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into reading (sensor_id,timestamp,[*]value,id) values (?,?,?,default)"; expected "identifier"; SQL statement:
+insert into reading (sensor_id,timestamp,value,id) values (?,?,?,default) [42001-232]
+2025-06-17 18:21:41.326786-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table if exists reading add column [*]value float(53) not null"; expected "identifier"; SQL statement:
+alter table if exists reading add column value float(53) not null [42001-232]
+2025-06-17 18:22:20.030973-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select r1_0.id,r1_0.sensor_id,r1_0.timestamp,r1_0.[*]value from reading r1_0"; expected "identifier"; SQL statement:
+select r1_0.id,r1_0.sensor_id,r1_0.timestamp,r1_0.value from reading r1_0 [42001-232]
+2025-06-17 18:23:54.542437-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into reading (sensor_id,timestamp,[*]value,id) values (?,?,?,default)"; expected "identifier"; SQL statement:
+insert into reading (sensor_id,timestamp,value,id) values (?,?,?,default) [42001-232]
